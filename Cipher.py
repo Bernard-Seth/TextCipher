@@ -37,18 +37,27 @@ class mainWindow(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
 
+        imgCaesar = tk.PhotoImage(file='juliusCaesar.gif')
+        Caesar = tk.Label(self, image=imgCaesar)
+        Caesar.image = imgCaesar
+        Caesar.grid(row = 1, column = 0, rowspan = 2)
+
+        imgStandard = tk.PhotoImage(file='RomanStandard.gif')
+        Standard = tk.Label(self, image=imgStandard)
+        Standard.image=imgStandard
+        Standard.grid(row = 1, column = 2, rowspan=2)
 
         lbl = ttk.Label(self,
                     justify = tk.CENTER,
                     text="Welcome to my Caesar Cipher.  To begin the cipher press start.  To learn more about"
                             " the Caesar Cipher press facts.")
-        lbl.grid(column=0, row=0, padx = 10, pady = 10, )
+        lbl.grid(column=0, row=0, padx = 10, pady = 10, columnspan=3 )
 
         factsbtn = ttk.Button(self, text="Facts", command=clickedFacts)
-        factsbtn.grid(row=2, column=0, padx=10, pady=10)
+        factsbtn.grid(row=2, column=1, padx=10, pady=10)
 
         startbtn = ttk.Button(self, text="Start", command=lambda: controller.show_frame(newWindow))
-        startbtn.grid(row=1, column=0, padx=10, pady=10)
+        startbtn.grid(row=1, column=1, padx=10, pady=10)
 
 '''The newWindow is used to take an input, put it through the cipher, display the new text, and then reverse the cipher
 into a popup window which shows all of the steps side by side.'''
