@@ -169,5 +169,9 @@ def clickedCipher():
     ntxtbox.delete('1.0', tk.END)
     ntxtbox.insert('1.0', string)
 
-app = tkinterApp()
-app.mainloop()
+def main():
+    app = tkinterApp()
+    app.mainloop()
+
+if __name__ == "__main__":
+    main()
